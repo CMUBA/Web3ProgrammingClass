@@ -12,7 +12,7 @@ I am Teacher Assistant for Crypto Currency class in Chiang Mai University, creat
 	1. Homework: pull and submit a PR to this repo, add a self-introduction markdown file to introduction directory
 	2. Install MetaMask, write down address to address.md, name and address. Remove you MetaMask, then recovery it.
 	3. Fork a hackathon project and analyze it, tell me the structure.
-		1. 
+		1. https://ethglobal.com/showcase/piggybank-6551-nft-e2ai5
 	4. Install cursor and build a one page Web3 application: Piggy Bank
 	
 6. Class2: Web3 Idea to Applications: Entrepreneurs,  Fun, Money, Job, Efficiency
