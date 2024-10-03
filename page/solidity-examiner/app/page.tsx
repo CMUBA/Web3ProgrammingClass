@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import SolidityExaminerABI from '../../../out/SolidityExaminer.sol/SolidityExaminer.json';
 
+
 // const contractAddress = '0xe17fAcE58d8a2A3641a30e25BeE4a98Ba9ACe41d';
 
 export default function Home() {
@@ -26,9 +27,9 @@ export default function Home() {
     const connectToEthereum = async () => {
       try {
         const ethereumNodeUrl = 'https://sepolia.infura.io/v3/be1aa32b920b4f46936b4ac92ad3c387';
-        console.log(ethereumNodeUrl);// Replace with your Ethereum node URL
+        // console.log(ethereumNodeUrl);// Replace with your Ethereum node URL
         const newProvider = new ethers.JsonRpcProvider(ethereumNodeUrl);
-        console.log(newProvider);
+        // console.log(newProvider);
         setProvider(newProvider);
         console.log('Connected to Ethereum node');
       } catch (error) {
@@ -45,15 +46,18 @@ export default function Home() {
         try {
           const contractAddress = '0xe17fAcE58d8a2A3641a30e25BeE4a98Ba9ACe41d' // Replace with your contract address
           const contractABI = SolidityExaminerABI.abi; // Replace with your contract ABI
-          console.log(contractABI);
-          const signer = await provider.getSigner();
-          console.log(signer);
-          const contract = new ethers.Contract(
-            contractAddress,
-            contractABI,
-            signer
-          );
-          console.log(contract);
+          // console.log(contractABI);
+          
+          const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY;
+          // console.log("pk:",privateKey);
+          if (!privateKey) {
+            throw new Error("PRIVATE_KEY is not set in the environment");
+          }
+          const signer = new ethers.Wallet(privateKey, provider)
+          // console.log(signer);
+          const contract = new ethers.Contract(contractAddress, contractABI, signer);
+
+          // console.log(contract);
           setContract(contract);
           console.log('Contract initialized');
         } catch (error) {
