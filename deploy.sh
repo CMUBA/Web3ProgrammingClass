@@ -1,0 +1,1 @@
+ forge script script/DeploySolidityExaminer.s.sol:DeploySolidityExaminer --rpc-url https://sepolia.infura.io/v3/be1aa32b920b4f46936b4ac92ad3c387 --broadcast --etherscan-api-key MZD22FX482CHDAN2NIVP5Q6V6B4Y3WFKSS --verify -vvvv
