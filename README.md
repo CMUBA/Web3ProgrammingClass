@@ -1,20 +1,66 @@
-# Web3ProgrammingClass
-I am Teacher Assistant for Crypto Currency class in Chiang Mai University, create this class for our undergraduates.
+## Foundry
 
-[https://github.com/CMUBA/Web3ProgrammingClass]
-# About this class
-1. For Whom: for undergraduates in CMU
-2. Schedule: about four weeks class for four times, 1.5 hour per time.
-3. Requirements: Laptop(Mac is better) or PC, basic computer skill
+**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
-## Class introduction
-5. Class1: Introduction for Web3 Programming
-	1. Homework: pull and submit a PR to this repo, add a self-introduction markdown file to introduction directory
-	2. Install MetaMask, write down address to address.md, name and address. Remove you MetaMask, then recovery it.
-	3. Fork a hackathon project and analyze it, tell me the structure.
-		1. https://ethglobal.com/showcase/piggybank-6551-nft-e2ai5
-	4. Install cursor and build a one page Web3 application: Piggy Bank
-	
-6. Class2: Web3 Idea to Applications: Entrepreneurs,  Fun, Money, Job, Efficiency
-7. Class3: Real Web3 Applications: Smart Contracts and more
-8. Class4: Solution to Development, Deploy and Monitor
+Foundry consists of:
+
+-   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
+-   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+-   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
+-   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+
+## Documentation
+
+https://book.getfoundry.sh/
+
+## Usage
+
+### Build
+
+```shell
+$ forge build
+```
+
+### Test
+
+```shell
+$ forge test
+```
+
+### Format
+
+```shell
+$ forge fmt
+```
+
+### Gas Snapshots
+
+```shell
+$ forge snapshot
+```
+
+### Anvil
+
+```shell
+$ anvil
+```
+
+### Deploy
+
+```shell
+$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+
+### Cast
+
+```shell
+$ cast <subcommand>
+```
+
+### Help
+
+```shell
+$ forge --help
+$ anvil --help
+$ cast --help
+```
