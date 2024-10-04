@@ -2,6 +2,7 @@
 ## Introduction
 This is a basic solidity training for CMU undergranduate students on class 885.
 ### Class 1 Agenda: 
+0. Preparation for learning
 1. Solidity 15 features training.
 2. A basic Web3 application structure.
 3. Write down your name onchain(onclass homework)
