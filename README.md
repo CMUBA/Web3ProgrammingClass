@@ -23,9 +23,12 @@ This is a basic solidity training for CMU undergranduate students on class 885.
 5. Deployment
 6. Show the real process of a Web3 application dev.
 7. after-class group homework:
-   1. create a single page application: Random Flower.
-   2. Input a random number and your name(class 1 you write onchain).
-   3. If your are verifyed, get a random SVG flower.
+   1. Create a single page application: Random Flower.
+   2. Input your name and score on chain(class 1).
+   3. Read your name, score from on chain contract.
+   4. Generate a random flower with your name
+   5. Export to download as a picture, show to us.
+
 
 
 =============
