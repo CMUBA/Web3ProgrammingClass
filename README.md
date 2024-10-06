@@ -29,7 +29,19 @@ This is a basic solidity training for CMU undergranduate students on class 885.
    4. Generate a random flower with your name
    5. Export to download as a picture, show to us.
 
+#### Real development steps
+Let's dev a simple Web3 Application in our class!
 
+1. Read the slides: https://docs.google.com/presentation/d/1LTMJauhUDzEaDyD4Bj_yZHxCDxWw1DeduEryCf_JX_Q/edit?usp=sharing
+2. Login your github account and create a new repo, named like: Jason-Web3-Prj.
+3. Git clone this repo to your local computer.
+4. Run: npx create-next-app web3class
+5. cd web3class, run npm install ether.js
+6. open cursor or vscode, open page.tsx
+7. add basic wallet connect to the contract we deployed, just fetch your score with address: 0xe24b6f321B0140716a2b671ed0D983bb64E7DaFA, 55
+8. then add a text input to input your name
+9. load the random flower svg generater, using your score as random number, display your name below.
+10. download your flower png, share with your friends
 
 =============
 ## Foundry
