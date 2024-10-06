@@ -7,6 +7,10 @@ contract SolidityExaminer {
     bool public boolValue;
     address public addressValue;
 
+    // New public variables for student information
+    uint256 public studentCount;
+    string public lastAddedStudentInfo;
+
     // Class 5: Data Storage and Scope
     uint256 private privateValue;
 
@@ -25,7 +29,7 @@ contract SolidityExaminer {
     uint256 public initializedValue = 100;
 
     // Class 9: Constant and Immutable
-    uint256 public constant CONSTANT_VALUE = 42;
+    uint256 public constant CONSTANT_VALUE = 4588;
     uint256 public immutable IMMUTABLE_VALUE;
 
     // Class 11: Constructor and Modifier
@@ -43,6 +47,9 @@ contract SolidityExaminer {
 
     // Class 12: Events
     event ValueSet(address indexed setter, uint256 value);
+    event StudentAdded(uint256 indexed index, string name, uint256 score);
+    event StudentUpdated(uint256 indexed index, string name, uint256 score);
+    event StudentRemoved(uint256 indexed index);
 
     // Class 3: Function
     function setNumber(uint256 _number) public {
@@ -79,8 +86,61 @@ contract SolidityExaminer {
     }
 
     function addStudent(string memory _name, uint256 _score) public {
+        uint256 index = students.length;
         students.push(Student(_name, _score));
         studentScores[msg.sender] = _score;
+        emit StudentAdded(index, _name, _score);
+
+        // Update the public variables
+        studentCount = students.length;
+        lastAddedStudentInfo = string(abi.encodePacked("Name: ", _name, ", Score: ", uint2str(_score)));
+    }
+
+    function getStudent(uint256 _index) public view returns (string memory name, uint256 score) {
+        require(_index < students.length, "Student does not exist");
+        Student memory student = students[_index];
+        return (student.name, student.score);
+    }
+
+    function updateStudent(uint256 _index, string memory _name, uint256 _score) public {
+        require(_index < students.length, "Student does not exist");
+        students[_index] = Student(_name, _score);
+        studentScores[msg.sender] = _score;
+        emit StudentUpdated(_index, _name, _score);
+    }
+
+    function removeStudent(uint256 _index) public {
+        require(_index < students.length, "Student does not exist");
+        students[_index] = students[students.length - 1];
+        students.pop();
+        emit StudentRemoved(_index);
+    }
+
+    function getStudentCount() public view returns (uint256) {
+        return students.length;
+    }
+
+    // Helper function to convert uint to string
+    function uint2str(uint256 _i) internal pure returns (string memory) {
+        if (_i == 0) {
+            return "0";
+        }
+        uint256 j = _i;
+        uint256 length;
+        while (j != 0) {
+            length++;
+            j /= 10;
+        }
+        bytes memory bstr = new bytes(length);
+        uint256 k = length;
+        while (_i != 0) {
+            k = k-1;
+            uint8 temp = (48 + uint8(_i - _i / 10 * 10));
+            bytes1 b1 = bytes1(temp);
+            bstr[k] = b1;
+            _i /= 10;
+        }
+        return string(bstr);
     }
 
     // Class 14: Abstract and Interface (simplified example)
